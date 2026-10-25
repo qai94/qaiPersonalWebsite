@@ -391,9 +391,35 @@ address {
 }
 
 .contact-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+/* Override general list spacing so the contact icons share one even row. */
+.contact-list li + li {
+    margin-top: 0;
+}
+
+.contact-list a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--surface);
+}
+
+.contact-list a:hover,
+.contact-list a:focus-visible {
+    background-color: var(--surface-muted);
+    color: var(--link-hover);
 }
 
 .page-footer {
@@ -577,6 +603,10 @@ address {
 @media (min-width: 768px) {
     .project-card {
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .contact-list {
+        gap: 24px;
     }
 }
 
