@@ -222,9 +222,9 @@ h1 {
     }
 }
 
-/* Inline list items wrap naturally; navigation needs no script. */
+/* Flexbox keeps menu spacing even and lets links wrap on smaller screens. */
 .section-nav {
-    padding: 12px 16px;
+    padding: 10px 12px;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     background-color: var(--surface-muted);
@@ -232,18 +232,52 @@ h1 {
 }
 
 .section-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 6px;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.section-nav li {
-    display: inline-block;
+.section-nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: background-color 150ms, box-shadow 150ms;
 }
 
-.section-nav a {
-    display: inline-block;
-    padding: 8px 10px;
+/* Mouse and keyboard users get the same pill highlight without moving the text. */
+.section-nav a:hover,
+.section-nav a:focus-visible {
+    background-color: var(--surface);
+    color: var(--accent);
+    box-shadow: inset 0 -2px 0 var(--accent);
+}
+
+/* Keep navigation available on desktop, with room for wrapped links at text zoom. */
+@media (min-width: 768px) {
+    .section-nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    html {
+        scroll-padding-top: 6rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .section-nav a {
+        transition: none;
+    }
 }
 
 /* Use smaller gaps within entries and larger gaps between entries and sections. */
@@ -363,16 +397,28 @@ address {
 }
 
 .page-footer {
+    /* Share a row when space allows; wrap safely when text is enlarged. */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 24px;
     padding: 20px 24px;
     border-top: 1px solid var(--border);
     background-color: var(--surface-muted);
     color: var(--text-muted);
     font-size: 0.9rem;
-    text-align: center;
+    text-align: left;
 }
 
 .page-footer p {
-    margin-bottom: 4px;
+    margin: 0;
+}
+
+.page-footer a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
 }
 
 /* Leave more reading space on phones, including when text is enlarged. */
@@ -391,5 +437,11 @@ address {
 
     main {
         padding: 0 16px;
+    }
+
+    .page-footer {
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
     }
 }
