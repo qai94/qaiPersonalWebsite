@@ -1,15 +1,66 @@
-// Find the HTML button by its ID and store its reference in a constant.
-const themeToggle = document.getElementById("theme-toggle");
+// This script runs in the head so the theme is chosen before CSS paints the page.
+const themeStorageKey = "qaiPersonalWebsite.theme";
+const systemTheme = typeof window.matchMedia === "function"
+    ? window.matchMedia("(prefers-color-scheme: dark)")
+    : null;
+let manualTheme = null;
+let themeToggle = null;
 
-// Show the button only when JavaScript is available to make it work.
-themeToggle.hidden = false;
+// Storage can be unavailable, including when index.html is opened as a local file.
+try {
+    const savedTheme = window.localStorage.getItem(themeStorageKey);
+    if (savedTheme === "light" || savedTheme === "dark") {
+        manualTheme = savedTheme;
+    }
+} catch {
+    // Continue with the system preference when a saved choice cannot be read.
+}
 
-// Run this function each time the user clicks the button.
-themeToggle.addEventListener("click", function () {
-    // Toggle the body class: add it if absent, remove it if present.
-    // The result is true when the class is present, or false when removed.
-    const darkModeEnabled = document.body.classList.toggle("dark-mode");
+function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
 
-    // Update aria-pressed so screen readers can announce whether dark mode is on.
-    themeToggle.setAttribute("aria-pressed", darkModeEnabled);
+    // The button does not exist yet when this function first runs in the head.
+    if (themeToggle) {
+        themeToggle.setAttribute("aria-pressed", theme === "dark");
+    }
+}
+
+function getSystemTheme() {
+    return systemTheme && systemTheme.matches ? "dark" : "light";
+}
+
+applyTheme(manualTheme || getSystemTheme());
+
+// Follow device changes only until the visitor makes an explicit choice.
+if (systemTheme) {
+    systemTheme.addEventListener("change", function () {
+        if (manualTheme === null) {
+            applyTheme(getSystemTheme());
+        }
+    });
+}
+
+// Wait for the HTML button before attaching its click handler and revealing it.
+document.addEventListener("DOMContentLoaded", function () {
+    themeToggle = document.getElementById("theme-toggle");
+    if (!themeToggle) {
+        return;
+    }
+
+    applyTheme(manualTheme || getSystemTheme());
+
+    themeToggle.addEventListener("click", function () {
+        manualTheme = document.documentElement.getAttribute("data-theme") === "dark"
+            ? "light"
+            : "dark";
+        applyTheme(manualTheme);
+
+        try {
+            window.localStorage.setItem(themeStorageKey, manualTheme);
+        } catch {
+            // The manual choice still applies to this page when saving is blocked.
+        }
+    });
+
+    themeToggle.hidden = false;
 });
