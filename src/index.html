@@ -1,0 +1,189 @@
+<!-- Use HTML5 and declare English for browsers and screen readers. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- UTF-8 supports special characters; viewport fits the layout to the device width. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- A short page summary that search engines may show in results. -->
+    <meta name="description" content="Qaiyum Hamid: educator, founder and tutor, and part-time Computer Science student interested in data science and educational technology.">
+    <title>Qaiyum Hamid | Personal Résumé</title>
+    <!-- Load styles from CSS; defer runs JavaScript after the HTML is parsed. -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <!-- Let keyboard users jump past the header and navigation. -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="resume" id="top">
+        <!-- The header introduces the person; the résumé details follow in main. -->
+        <header class="page-header">
+            <!-- alt describes the photo; width and height reserve space while it loads. -->
+            <img class="portrait" src="images/profile.jpg" width="600" height="769" alt="Portrait of Qaiyum Hamid">
+            <div class="header-introduction">
+                <h1>Qaiyum Hamid</h1>
+                <p class="headline">Educator &amp; Computer Science Student</p>
+                <p class="introduction">Interested in data science and educational technology.</p>
+                <!-- JavaScript reveals this button; aria-pressed reports whether dark mode is on. -->
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden>Dark mode</button>
+            </div>
+        </header>
+
+        <!-- Each link points to the matching section ID on this page. -->
+        <nav class="section-nav" aria-label="Résumé sections">
+            <ul>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications &amp; Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- main holds the primary content; tabindex="-1" lets the skip link focus it. -->
+        <main id="main-content" tabindex="-1">
+            <!-- Each section uses its heading ID as its accessible name via aria-labelledby. -->
+            <section id="profile" aria-labelledby="profile-heading">
+                <h2 id="profile-heading">Profile</h2>
+                <!-- strong marks important text, usually displayed in bold. -->
+                <p>I am an educator, founder and tutor teaching <strong>SPM Mathematics, Additional Mathematics and Physics</strong>. I am pursuing a part-time Bachelor’s Degree in Computer Science at Universiti Teknologi MARA (UiTM), with interests in data science and educational technology.</p>
+                <p>My teaching focuses on identifying learning gaps, adapting lessons to individual needs, and using assessment and feedback to guide progress. I have been developing my tutoring initiatives since around 2015.</p>
+            </section>
+
+            <section id="experience" aria-labelledby="experience-heading">
+                <h2 id="experience-heading">Experience</h2>
+
+                <!-- Each article groups one résumé entry; h3 sits below the section h2. -->
+                <article class="entry">
+                    <h3>Educator</h3>
+                    <p class="organisation">Edunation Resource (Future Faculty)</p>
+                    <!-- datetime gives a machine-readable date alongside the readable date. -->
+                    <p class="details"><time datetime="2020-02">February 2020</time>–present</p>
+                    <ul>
+                        <li>Teach and mentor students through personalised lessons and structured learning materials.</li>
+                        <li>Use digital tools, assessment and student feedback to identify learning needs and refine teaching.</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <h3>Education Specialist</h3>
+                    <p class="organisation">XSEED Education</p>
+                    <p class="details"><time datetime="2025-02">February 2025</time>–<time datetime="2026-07">July 2026</time> · Contract</p>
+                    <ul>
+                        <li>Collected, cleaned and analysed educational data using tools including Excel, Google Sheets, SQL and Python.</li>
+                        <li>Prepared dashboards and reports to support decisions about learner and product performance.</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <h3>Teacher</h3>
+                    <p class="organisation">Edunation Resources</p>
+                    <p class="details"><time datetime="2014-04">April 2014</time>–<time datetime="2019-12">December 2019</time></p>
+                    <ul>
+                        <li>Delivered one-to-one and group tutoring tailored to students’ learning needs.</li>
+                        <li>Developed lesson plans and adapted teaching based on student progress.</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <h3>Technical Support Specialist</h3>
+                    <p class="organisation">Bermaz Auto Berhad</p>
+                    <p class="details"><time datetime="2015-02">February 2015</time>–<time datetime="2017-02">February 2017</time> · Contract</p>
+                    <ul>
+                        <li>Assisted customers with maintenance, repairs and warranty enquiries.</li>
+                        <li>Coordinated service schedules and maintained service records and documentation.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section id="education" aria-labelledby="education-heading">
+                <h2 id="education-heading">Education</h2>
+
+                <article class="entry">
+                    <h3>Bachelor’s Degree in Computer Science</h3>
+                    <p class="organisation">Universiti Teknologi MARA (UiTM)</p>
+                    <p class="details"><time datetime="2022-09">September 2022</time>–present · Part-time</p>
+                </article>
+
+                <article class="entry">
+                    <h3>Undergraduate studies in Mechanical Engineering Technology (Maintenance Technology)</h3>
+                    <p class="organisation">Universiti Teknikal Malaysia Melaka (UTeM)</p>
+                    <p class="details"><time datetime="2013">2013</time>–<time datetime="2016">2016</time></p>
+                </article>
+
+                <article class="entry">
+                    <h3>Foundation in Engineering</h3>
+                    <p class="organisation">Universiti Teknologi MARA (UiTM)</p>
+                    <p class="details"><time datetime="2012">2012</time></p>
+                </article>
+            </section>
+
+            <section id="skills" aria-labelledby="skills-heading">
+                <h2 id="skills-heading">Skills</h2>
+                <!-- Use an unordered list when item order does not matter. -->
+                <ul class="skills-list">
+                    <li><strong>Data and analysis:</strong> Python and R (used independently), SQL, statistical data analysis, data collection and validation.</li>
+                    <li><strong>Programming and web coursework:</strong> HTML, CSS, JavaScript, Java and C++.</li>
+                    <li><strong>Teaching and learning:</strong> Personalised lesson planning, assessment and feedback, student mentoring and e-learning.</li>
+                    <li><strong>Currently learning:</strong> MongoDB and AWS.</li>
+                </ul>
+            </section>
+
+            <section id="projects" aria-labelledby="projects-heading">
+                <h2 id="projects-heading">Projects</h2>
+
+                <article class="entry">
+                    <h3>VisitPerhentian</h3>
+                    <p class="details">Coursework project</p>
+                    <p>A travel information website introducing Pulau Perhentian, its activities and accommodation. Built with HTML, CSS and JavaScript for CSC584 Web Programming.</p>
+                    <p><a href="https://github.com/qai94/VisitPerhentian">View VisitPerhentian on GitHub</a></p>
+                </article>
+
+                <article class="entry">
+                    <h3>Adaptive Microlearning Platform</h3>
+                    <p class="details">Planning and prototype stage</p>
+                    <p>An early project exploring Elo ratings and Bayesian Knowledge Tracing for personalised learning, connecting my teaching background with my interest in educational technology.</p>
+                </article>
+            </section>
+
+            <section id="certifications" aria-labelledby="certifications-heading">
+                <h2 id="certifications-heading">Certifications &amp; Achievements</h2>
+
+                <article class="entry">
+                    <h3>Introduction to Modern AI</h3>
+                    <p class="organisation">Cisco</p>
+                    <p class="details"><time datetime="2025-06">June 2025</time></p>
+                </article>
+
+                <article class="entry">
+                    <h3>Introduction to Data Science</h3>
+                    <p class="organisation">Cisco Networking Academy</p>
+                    <p class="details"><time datetime="2025-04">April 2025</time></p>
+                </article>
+            </section>
+
+            <section id="contact" aria-labelledby="contact-heading">
+                <h2 id="contact-heading">Contact</h2>
+                <p>For professional conversations, learning opportunities or collaboration, you can reach me through:</p>
+                <!-- address identifies contact details; mailto opens an email application. -->
+                <address>
+                    <ul class="contact-list">
+                        <li><strong>Email:</strong> <a href="mailto:qaiyumhamid94@gmail.com">qaiyumhamid94@gmail.com</a></li>
+                        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/qaiyum94/">Qaiyum Hamid on LinkedIn</a></li>
+                        <li><strong>GitHub:</strong> <a href="https://github.com/qai94">qai94 on GitHub</a></li>
+                    </ul>
+                </address>
+            </section>
+        </main>
+
+        <!-- The footer contains copyright details and a link to the top container ID. -->
+        <footer class="page-footer">
+            <p>© 2026 Qaiyum Hamid.</p>
+            <a href="#top">Back to top</a>
+        </footer>
+    </div>
+</body>
+</html>
