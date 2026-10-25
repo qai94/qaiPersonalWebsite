@@ -7,12 +7,14 @@ Includes profile, experience, education, skills, projects, certifications and co
 ## Files
 
 ```text
-index.html
-css/style.css
-images/profile.jpg
-js/script.js
+src/index.html
+src/css/style.css
+src/images/profile.jpg
+src/js/script.js
 ```
 
-Open `index.html` in a browser to view locally. No installation or build step is required.
+Open `src/index.html` in a browser to view locally. No installation or build step is required.
 
-GitHub Pages publishes from the `main` branch and repository root. The website address is https://qai94.github.io/qaiPersonalWebsite/ once deployment is enabled.
+GitHub Actions deploys the contents of `src/` to GitHub Pages on pushes to `main`, using `.github/workflows/static.yml`.
+
+Live website: [Qaiyum Personal Website](https://qai94.github.io/qaiPersonalWebsite/).
