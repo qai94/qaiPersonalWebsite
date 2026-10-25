@@ -310,8 +310,8 @@ p {
     margin-bottom: 16px;
 }
 
-/* + selects an entry immediately after another entry, leaving the first unchanged. */
-.entry + .entry {
+/* Space later entries even when a preview dialog sits between them. */
+.entry ~ .entry {
     margin-top: 24px;
 }
 
@@ -443,5 +443,185 @@ address {
         flex-direction: column;
         gap: 4px;
         text-align: center;
+    }
+}
+
+/* Project screenshot and details share a card, stacking naturally on phones. */
+.project-card {
+    display: grid;
+    gap: 20px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--surface-muted);
+    transition: border-color 150ms;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+    border-color: var(--accent);
+}
+
+.project-copy {
+    min-width: 0;
+}
+
+.project-browser {
+    align-self: start;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: var(--surface);
+}
+
+.project-browser-bar {
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+}
+
+.project-browser-bar span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--text-muted);
+}
+
+.project-browser img,
+.project-dialog img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 12px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.project-tags li {
+    margin: 0;
+    padding: 2px 8px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.project-button {
+    min-height: 44px;
+    padding: 8px 16px;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    background-color: var(--accent);
+    color: var(--surface);
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 150ms;
+}
+
+.project-button:hover {
+    background-color: var(--link-hover);
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 20px;
+    margin-top: 8px;
+}
+
+.project-links a,
+.project-dialog > a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+
+.project-dialog {
+    width: min(960px, calc(100% - 32px));
+    max-height: calc(100% - 32px);
+    padding: 20px;
+    overflow: auto;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--surface);
+    color: var(--text);
+}
+
+.project-dialog::backdrop {
+    background-color: rgb(0 0 0 / 65%);
+}
+
+.project-dialog-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.project-dialog-header h3 {
+    margin-bottom: 0;
+}
+
+.project-dialog img {
+    margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+    .project-card {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .project-button {
+        transition: none;
+    }
+}
+
+/* Official badges accompany their credential details without external embeds. */
+.credential-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--surface-muted);
+}
+
+.credential-badge {
+    width: 96px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.credential-details {
+    min-width: 0;
+}
+
+.credential-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+
+@media (max-width: 480px) {
+    .credential-row {
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .credential-badge {
+        width: 64px;
     }
 }
