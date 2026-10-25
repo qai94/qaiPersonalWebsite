@@ -64,3 +64,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     themeToggle.hidden = false;
 });
+
+// Initialise the project preview separately so it never depends on the theme button.
+document.addEventListener("DOMContentLoaded", function () {
+    const previewButton = document.getElementById("project-preview-button");
+    const previewDialog = document.getElementById("project-preview");
+    const closeButton = document.getElementById("project-preview-close");
+
+    if (!previewButton || !previewDialog || !closeButton ||
+        typeof previewDialog.showModal !== "function") {
+        return;
+    }
+
+    previewButton.addEventListener("click", function () {
+        previewDialog.showModal();
+        closeButton.focus();
+    });
+
+    closeButton.addEventListener("click", function () {
+        previewDialog.close();
+    });
+
+    // Native Escape dismissal also fires close, restoring focus to the opener.
+    previewDialog.addEventListener("close", function () {
+        previewButton.focus();
+    });
+
+    previewButton.hidden = false;
+});

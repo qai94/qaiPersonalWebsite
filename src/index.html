@@ -58,7 +58,7 @@
             <div class="header-introduction">
                 <h1>Qaiyum Hamid</h1>
                 <p class="headline">Educator &amp; Computer Science Student</p>
-                <p class="introduction">Interested in data science and educational technology.</p>
+                <p class="introduction">Mathematics &middot; Statistics &middot; Data Science &middot; Data Analysis</p>
             </div>
         </header>
 
@@ -81,7 +81,7 @@
             <section id="profile" aria-labelledby="profile-heading">
                 <h2 id="profile-heading">Profile</h2>
                 <!-- strong marks important text, usually displayed in bold. -->
-                <p>I am an educator, founder and tutor teaching <strong>SPM Mathematics, Additional Mathematics and Physics</strong>. I am pursuing a part-time Bachelor’s Degree in Computer Science at Universiti Teknologi MARA (UiTM), with interests in data science and educational technology.</p>
+                <p>I am an educator, founder and tutor teaching <strong>SPM Mathematics, Additional Mathematics and Physics</strong>. Currently pursuing a Bachelor’s Degree in Computer Science at Universiti Teknologi MARA (UiTM), with interests in data science and educational technology.</p>
                 <p>My teaching focuses on identifying learning gaps, adapting lessons to individual needs, and using assessment and feedback to guide progress. I have been developing my tutoring initiatives since around 2015.</p>
             </section>
 
@@ -141,7 +141,7 @@
                 </article>
 
                 <article class="entry">
-                    <h3>Undergraduate studies in Mechanical Engineering Technology (Maintenance Technology)</h3>
+                    <h3>Bachelor’s Degree  in Mechanical Engineering Technology</h3>
                     <p class="organisation">Universiti Teknikal Malaysia Melaka (UTeM)</p>
                     <p class="details"><time datetime="2013">2013</time>–<time datetime="2016">2016</time></p>
                 </article>
@@ -167,12 +167,39 @@
             <section id="projects" aria-labelledby="projects-heading">
                 <h2 id="projects-heading">Projects</h2>
 
-                <article class="entry">
-                    <h3>VisitPerhentian</h3>
-                    <p class="details">Coursework project</p>
-                    <p>A travel information website introducing Pulau Perhentian, its activities and accommodation. Built with HTML, CSS and JavaScript for CSC584 Web Programming.</p>
-                    <p><a href="https://github.com/qai94/VisitPerhentian">View VisitPerhentian on GitHub</a></p>
+                <article class="entry project-card">
+                    <div class="project-browser">
+                        <div class="project-browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                        <img src="images/visitperhentian-preview.webp" width="1280" height="850" loading="lazy" alt="VisitPerhentian homepage featuring the island coastline and travel information.">
+                    </div>
+                    <div class="project-copy">
+                        <h3>VisitPerhentian</h3>
+                        <p class="details">Travel information website</p>
+                        <ul class="project-tags" aria-label="Technologies used">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+                        <p>A travel information website introducing Pulau Perhentian, its activities and accommodation. Built with HTML, CSS and JavaScript for CSC584 Web Programming.</p>
+                        <button class="project-button" id="project-preview-button" type="button" aria-haspopup="dialog" aria-controls="project-preview" hidden>Preview</button>
+                        <div class="project-links">
+                            <a href="https://visitperhentian.netlify.app/">Visit Website</a>
+                            <a href="https://github.com/qai94/VisitPerhentian">GitHub Repo</a>
+                        </div>
+                    </div>
                 </article>
+
+                <!-- One native dialog reuses the card image; the live website remains a normal link. -->
+                <dialog class="project-dialog" id="project-preview" aria-labelledby="project-preview-title" aria-describedby="project-preview-description">
+                    <div class="project-dialog-header">
+                        <h3 id="project-preview-title">VisitPerhentian preview</h3>
+                        <button class="project-button" id="project-preview-close" type="button" autofocus>Close</button>
+                    </div>
+                    <img src="images/visitperhentian-preview.webp" width="1280" height="850" loading="lazy" alt="VisitPerhentian homepage with island scenery, travel navigation and an introduction to the islands.">
+                    <p id="project-preview-description">A travel information website for CSC584 coursework. This is a homepage screenshot; enquiry features on the live demo are simulated.</p>
+                    <a href="https://visitperhentian.netlify.app/">Visit Website</a>
+                    <a href="https://github.com/qai94/VisitPerhentian">GitHub Repo</a>
+                </dialog>
 
                 <article class="entry">
                     <h3>Adaptive Microlearning Platform</h3>
@@ -184,16 +211,24 @@
             <section id="certifications" aria-labelledby="certifications-heading">
                 <h2 id="certifications-heading">Certifications &amp; Achievements</h2>
 
-                <article class="entry">
-                    <h3>Introduction to Modern AI</h3>
-                    <p class="organisation">Cisco</p>
-                    <p class="details"><time datetime="2025-06">June 2025</time></p>
+                <article class="entry credential-row">
+                    <img class="credential-badge" src="images/cisco-modern-ai.webp" width="340" height="340" loading="lazy" alt="">
+                    <div class="credential-details">
+                        <h3>Introduction to Modern AI</h3>
+                        <p class="organisation">Cisco</p>
+                        <p class="details"><time datetime="2025-06-09">June 2025</time></p>
+                        <a class="credential-link" href="https://www.credly.com/badges/292bf58f-a500-474c-ab63-82294d6fa71d/public_url" aria-label="View credential on Credly: Introduction to Modern AI">View credential on Credly</a>
+                    </div>
                 </article>
 
-                <article class="entry">
-                    <h3>Introduction to Data Science</h3>
-                    <p class="organisation">Cisco Networking Academy</p>
-                    <p class="details"><time datetime="2025-04">April 2025</time></p>
+                <article class="entry credential-row">
+                    <img class="credential-badge" src="images/cisco-data-science.webp" width="340" height="340" loading="lazy" alt="">
+                    <div class="credential-details">
+                        <h3>Introduction to Data Science</h3>
+                        <p class="organisation">Cisco</p>
+                        <p class="details"><time datetime="2025-04-28">April 2025</time></p>
+                        <a class="credential-link" href="https://www.credly.com/badges/db376c69-237d-4d24-9c2d-367a1c31fa27/public_url" aria-label="View credential on Credly: Introduction to Data Science">View credential on Credly</a>
+                    </div>
                 </article>
             </section>
 
