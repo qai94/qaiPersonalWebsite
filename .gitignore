@@ -1,0 +1,21 @@
+# Assignment documents, reference materials, and personal skill notes (local only)
+/docs/
+/references/
+/skills/
+
+# macOS files
+.DS_Store
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*~
+
+# Local browser testing artifacts
+.playwright-cli/
