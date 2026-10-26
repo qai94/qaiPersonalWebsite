@@ -19,3 +19,8 @@
 
 # Local browser testing artifacts
 .playwright-cli/
+
+# Unused root-level photos; website images remain under src/images/
+/passportQaiyumHamid.jpeg
+/profile.jpg
+/profile.png
