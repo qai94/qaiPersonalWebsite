@@ -2,6 +2,7 @@
 /docs/
 /references/
 /skills/
+/Prototype/
 
 # macOS files
 .DS_Store
@@ -24,3 +25,7 @@
 /passportQaiyumHamid.jpeg
 /profile.jpg
 /profile.png
+
+# Local AI development tools
+/AGENTS.md
+/.agents/
