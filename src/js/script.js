@@ -113,3 +113,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     followMotionPreference();
 });
+
+// Enhance the footer anchor without removing its no-JavaScript fallback.
+document.addEventListener("DOMContentLoaded", function () {
+    const backToTop = document.getElementById("back-to-top");
+    const top = document.getElementById("top");
+    const footer = document.querySelector(".page-footer");
+    if (!backToTop || !top || !footer) {
+        return;
+    }
+
+    function updateBackToTop() {
+        backToTop.hidden = window.scrollY <= window.innerHeight &&
+            document.activeElement !== backToTop;
+        // Lift the icon above the footer so copyright remains unobstructed.
+        const clearance = Math.max(0, window.innerHeight - footer.getBoundingClientRect().top);
+        backToTop.style.setProperty("--footer-clearance", clearance + "px");
+    }
+
+    backToTop.classList.add("is-floating");
+    backToTop.addEventListener("click", function () {
+        top.focus({ preventScroll: true });
+        // The native #top anchor performs the immediate scroll.
+    });
+    backToTop.addEventListener("blur", updateBackToTop);
+    window.addEventListener("scroll", updateBackToTop, { passive: true });
+    window.addEventListener("resize", updateBackToTop);
+    window.addEventListener("pageshow", updateBackToTop);
+    updateBackToTop();
+});

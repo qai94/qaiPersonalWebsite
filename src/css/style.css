@@ -434,18 +434,17 @@ address {
 }
 
 .page-footer {
-    /* Share a row when space allows; wrap safely when text is enlarged. */
+    /* Center copyright and the ordinary link used when JavaScript is off. */
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 8px 24px;
+    gap: 4px;
     padding: 20px 24px;
     border-top: 1px solid var(--border);
     background-color: var(--surface-muted);
     color: var(--text-muted);
     font-size: 0.9rem;
-    text-align: left;
+    text-align: center;
 }
 
 .page-footer p {
@@ -456,6 +455,40 @@ address {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
+}
+
+.back-to-top-icon {
+    display: none;
+}
+
+.back-to-top.is-floating {
+    position: fixed;
+    /* Sit just beside the 860px résumé, with a safe inset on narrow screens. */
+    right: max(calc(16px + env(safe-area-inset-right, 0px)), calc((100vw - 860px) / 2 - 60px));
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px) + var(--footer-clearance, 0px));
+    z-index: 20;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--accent);
+    color: var(--surface);
+    text-decoration: none;
+}
+
+.back-to-top.is-floating:hover {
+    background-color: var(--link-hover);
+    color: var(--surface);
+}
+
+.back-to-top.is-floating .back-to-top-icon {
+    display: block;
+}
+
+.back-to-top.is-floating .back-to-top-label,
+.back-to-top[hidden] {
+    display: none;
 }
 
 /* Leave more reading space on phones, including when text is enlarged. */
