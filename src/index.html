@@ -16,7 +16,7 @@
     <!-- Let keyboard users jump past the header and navigation. -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <div class="resume" id="top">
+    <div class="resume" id="top" tabindex="-1">
         <!-- The header introduces the person; the résumé details follow in main. -->
         <header class="page-header">
             <!-- Decorative motion: the poster remains visible until a frame is ready. -->
@@ -234,7 +234,33 @@
         <!-- The footer contains copyright details and a link to the top container ID. -->
         <footer class="page-footer">
             <p>© 2026 Qaiyum Hamid.</p>
-            <a href="#top">Back to top</a>
+            <!--
+                Bootstrap Icons arrow-up — https://icons.getbootstrap.com/
+                The MIT License (MIT)
+                Copyright (c) 2019-2024 The Bootstrap Authors
+
+                Permission is hereby granted, free of charge, to any person obtaining a copy
+                of this software and associated documentation files (the "Software"), to deal
+                in the Software without restriction, including without limitation the rights
+                to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                copies of the Software, and to permit persons to whom the Software is
+                furnished to do so, subject to the following conditions:
+                The above copyright notice and this permission notice shall be included in
+                all copies or substantial portions of the Software.
+                THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                THE SOFTWARE.
+            -->
+            <a class="back-to-top" id="back-to-top" href="#top" aria-label="Back to top" title="Back to top">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="back-to-top-icon" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
+                </svg>
+                <span class="back-to-top-label">Back to top</span>
+            </a>
         </footer>
     </div>
 </body>
