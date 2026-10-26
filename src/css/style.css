@@ -32,7 +32,7 @@
         --accent: #93c5fd;
         --link-hover: #bfdbfe;
         --focus: #93c5fd;
-        --hero-overlay-opacity: 0.9;
+        --hero-overlay-opacity: 0.8;
         --hero-supporting-text: var(--text-muted);
     }
 }
@@ -49,7 +49,7 @@
     --accent: #93c5fd;
     --link-hover: #bfdbfe;
     --focus: #93c5fd;
-    --hero-overlay-opacity: 0.9;
+    --hero-overlay-opacity: 0.8;
     --hero-supporting-text: var(--text-muted);
 }
 
