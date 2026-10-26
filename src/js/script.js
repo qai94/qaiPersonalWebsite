@@ -65,30 +65,51 @@ document.addEventListener("DOMContentLoaded", function () {
     themeToggle.hidden = false;
 });
 
-// Initialise the project preview separately so it never depends on the theme button.
+// Load decorative video only when motion is allowed; keep the poster as fallback.
 document.addEventListener("DOMContentLoaded", function () {
-    const previewButton = document.getElementById("project-preview-button");
-    const previewDialog = document.getElementById("project-preview");
-    const closeButton = document.getElementById("project-preview-close");
+    const video = document.getElementById("hero-video");
+    const reducedMotion = typeof window.matchMedia === "function"
+        ? window.matchMedia("(prefers-reduced-motion: reduce)")
+        : null;
 
-    if (!previewButton || !previewDialog || !closeButton ||
-        typeof previewDialog.showModal !== "function") {
+    if (!video) {
         return;
     }
 
-    previewButton.addEventListener("click", function () {
-        previewDialog.showModal();
-        closeButton.focus();
-    });
+    function followMotionPreference() {
+        if (reducedMotion && reducedMotion.matches) {
+            video.pause();
+            video.hidden = true;
+            return;
+        }
 
-    closeButton.addEventListener("click", function () {
-        previewDialog.close();
-    });
+        const sources = video.querySelectorAll("source");
+        if (!sources[0].getAttribute("src")) {
+            sources.forEach(function (source) {
+                source.src = source.dataset.src;
+            });
+            video.load();
+        }
+        video.hidden = video.readyState < 2;
+        // If autoplay is blocked, retain the static poster without extra controls.
+        video.play().catch(function () {
+            video.hidden = true;
+        });
+    }
 
-    // Native Escape dismissal also fires close, restoring focus to the opener.
-    previewDialog.addEventListener("close", function () {
-        previewButton.focus();
+    video.addEventListener("loadeddata", function () {
+        video.hidden = Boolean(reducedMotion && reducedMotion.matches);
     });
+    function showPosterFallback() {
+        video.hidden = true;
+    }
 
-    previewButton.hidden = false;
+    video.addEventListener("error", showPosterFallback);
+    // Source errors do not bubble to video; the last source means both failed.
+    video.querySelector("source:last-child").addEventListener("error", showPosterFallback);
+
+    if (reducedMotion) {
+        reducedMotion.addEventListener("change", followMotionPreference);
+    }
+    followMotionPreference();
 });

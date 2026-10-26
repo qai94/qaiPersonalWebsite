@@ -19,6 +19,11 @@
     <div class="resume" id="top">
         <!-- The header introduces the person; the résumé details follow in main. -->
         <header class="page-header">
+            <!-- Decorative motion: the poster remains visible until a frame is ready. -->
+            <video class="hero-video" id="hero-video" poster="images/heroVid/hero-poster.jpg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" hidden>
+                <source data-src="images/heroVid/hero-bg.webm" type="video/webm">
+                <source data-src="images/heroVid/hero-bg.mp4" type="video/mp4">
+            </video>
             <!-- The icon-only button keeps an accessible name and pressed state. -->
             <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Toggle dark mode" hidden>
                 <svg class="theme-icon theme-icon-sun" aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,7 +39,7 @@
             <div class="header-introduction">
                 <h1>Qaiyum Hamid</h1>
                 <p class="headline">Educator &amp; Computer Science Enthusiast</p>
-                <p class="introduction">Mathematics &middot; Statistics &middot; Data Science &middot; Data Analysis</p>
+                <p class="introduction">Mathematics &middot; Statistics &middot; Data Science and Analysis</p>
             </div>
         </header>
 
@@ -55,10 +60,10 @@
         <main id="main-content" tabindex="-1">
             <!-- Each section uses its heading ID as its accessible name via aria-labelledby. -->
             <section id="profile" aria-labelledby="profile-heading">
-                <h2 id="profile-heading">Profile</h2>
+                <h2 id="profile-heading">About Me</h2>
                 <!-- strong marks important text, usually displayed in bold. -->
-                <p>I am an educator, founder and tutor teaching <strong>SPM Mathematics, Additional Mathematics and Physics</strong>. Currently pursuing a Bachelor’s Degree in Computer Science at Universiti Teknologi MARA (UiTM), with interests in data science and educational technology.</p>
-                <p>My teaching focuses on identifying learning gaps, adapting lessons to individual needs, and using assessment and feedback to guide progress. I have been developing my tutoring initiatives since around 2015.</p>
+                <p>An <strong>educator and computer science enthusiast</strong> with almost a decade of experience in teaching Mathematics &amp; Additional Mathematics.
+                    Currently pursuing a <strong>Bachelor’s Degree in Computer Science </strong> at Universiti Teknologi MARA (UiTM), with interests in <strong>data science and educational technology</strong>.</p>
             </section>
 
             <section id="experience" aria-labelledby="experience-heading">
@@ -66,8 +71,8 @@
 
                 <!-- Each article groups one résumé entry; h3 sits below the section h2. -->
                 <article class="entry">
-                    <h3>Educator</h3>
-                    <p class="organisation">Edunation Resource (Future Faculty)</p>
+                    <h3>Education Principal</h3>
+                    <p class="organisation">Future Faculty</p>
                     <!-- datetime gives a machine-readable date alongside the readable date. -->
                     <p class="details"><time datetime="2020-02">February 2020</time>–present</p>
                     <ul>
@@ -79,30 +84,30 @@
                 <article class="entry">
                     <h3>Education Specialist</h3>
                     <p class="organisation">XSEED Education</p>
-                    <p class="details"><time datetime="2025-02">February 2025</time>–<time datetime="2026-07">July 2026</time> · Contract</p>
+                    <p class="details"><time datetime="2025-02">February 2025</time>–<time datetime="2026-07">July 2026</time></p>
                     <ul>
-                        <li>Collected, cleaned and analysed educational data using tools including Excel, Google Sheets, SQL and Python.</li>
-                        <li>Prepared dashboards and reports to support decisions about learner and product performance.</li>
+                        <li>Collect, clean and analyse educational data using tools including Excel, Google Sheets, SQL and Python.</li>
+                        <li>Prepare dashboards and reports to support decisions about learner and product performance.</li>
                     </ul>
                 </article>
 
                 <article class="entry">
-                    <h3>Teacher</h3>
+                    <h3>Tutor</h3>
                     <p class="organisation">Edunation Resources</p>
                     <p class="details"><time datetime="2014-04">April 2014</time>–<time datetime="2019-12">December 2019</time></p>
                     <ul>
-                        <li>Delivered one-to-one and group tutoring tailored to students’ learning needs.</li>
-                        <li>Developed lesson plans and adapted teaching based on student progress.</li>
+                        <li>Deliver one-to-one and group tutoring tailored to students’ learning needs.</li>
+                        <li>Develop lesson plans and adapted teaching based on student progress.</li>
                     </ul>
                 </article>
 
                 <article class="entry">
                     <h3>Technical Support Specialist</h3>
                     <p class="organisation">Bermaz Auto Berhad</p>
-                    <p class="details"><time datetime="2015-02">February 2015</time>–<time datetime="2017-02">February 2017</time> · Contract</p>
+                    <p class="details"><time datetime="2015-02">February 2015</time>–<time datetime="2017-02">February 2017</time></p>
                     <ul>
-                        <li>Assisted customers with maintenance, repairs and warranty enquiries.</li>
-                        <li>Coordinated service schedules and maintained service records and documentation.</li>
+                        <li>Assist customers with maintenance, repairs and warranty enquiries.</li>
+                        <li>Coordinate service schedules and maintained service records and documentation.</li>
                     </ul>
                 </article>
             </section>
@@ -134,7 +139,7 @@
                 <!-- Use an unordered list when item order does not matter. -->
                 <ul class="skills-list">
                     <li><strong>Data Analysis:</strong> Python , R, SQL and NoSQL.</li>
-                    <li><strong>Programming & Web Development:</strong> HTML, CSS, JavaScript, Java and C++.</li>
+                    <li><strong>Programming &amp; Web Development:</strong> HTML, CSS, JavaScript, Java and C++.</li>
                     <li><strong>Education Management:</strong> Personalised Lesson Planning, Classroom Management, Student Mentoring and E-learning Implementation.</li>
                     <li><strong>Database Administration:</strong> MariaDB, MongoDB and AWS.</li>
                 </ul>
@@ -157,25 +162,12 @@
                             <li>JavaScript</li>
                         </ul>
                         <p>A travel information website introducing Pulau Perhentian, its activities and accommodation. Built with HTML, CSS and JavaScript for CSC584 Web Programming.</p>
-                        <button class="project-button" id="project-preview-button" type="button" aria-haspopup="dialog" aria-controls="project-preview" hidden>Preview</button>
                         <div class="project-links">
-                            <a href="https://visitperhentian.netlify.app/">Visit Website</a>
+                            <a class="project-link-primary" href="https://visitperhentian.netlify.app/">Visit Website</a>
                             <a href="https://github.com/qai94/VisitPerhentian">GitHub Repo</a>
                         </div>
                     </div>
                 </article>
-
-                <!-- One native dialog reuses the card image; the live website remains a normal link. -->
-                <dialog class="project-dialog" id="project-preview" aria-labelledby="project-preview-title" aria-describedby="project-preview-description">
-                    <div class="project-dialog-header">
-                        <h3 id="project-preview-title">VisitPerhentian preview</h3>
-                        <button class="project-button" id="project-preview-close" type="button" autofocus>Close</button>
-                    </div>
-                    <img src="images/visitperhentian-preview.webp" width="1280" height="850" loading="lazy" alt="VisitPerhentian homepage with island scenery, travel navigation and an introduction to the islands.">
-                    <p id="project-preview-description">A travel information website for CSC584 coursework. This is a homepage screenshot; enquiry features on the live demo are simulated.</p>
-                    <a href="https://visitperhentian.netlify.app/">Visit Website</a>
-                    <a href="https://github.com/qai94/VisitPerhentian">GitHub Repo</a>
-                </dialog>
 
                 <article class="entry">
                     <h3>Adaptive Microlearning Platform</h3>

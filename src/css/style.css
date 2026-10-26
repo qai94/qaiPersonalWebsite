@@ -14,6 +14,8 @@
     --focus: #1d4ed8;
     --switch-active: #007aff;
     --switch-thumb: #ffffff;
+    --hero-overlay-opacity: 0.4;
+    --hero-supporting-text: var(--text);
 }
 
 /* Without JavaScript, follow the device. Explicit light always overrides this. */
@@ -30,6 +32,8 @@
         --accent: #93c5fd;
         --link-hover: #bfdbfe;
         --focus: #93c5fd;
+        --hero-overlay-opacity: 0.9;
+        --hero-supporting-text: var(--text-muted);
     }
 }
 
@@ -45,6 +49,8 @@
     --accent: #93c5fd;
     --link-hover: #bfdbfe;
     --focus: #93c5fd;
+    --hero-overlay-opacity: 0.9;
+    --hero-supporting-text: var(--text-muted);
 }
 
 /* Include padding and borders in element widths to simplify sizing. */
@@ -77,6 +83,8 @@ body {
 /* Header and portrait: dimensions stay flexible to preserve the photo. */
 .page-header {
     position: relative;
+    isolation: isolate;
+    background: var(--surface-muted) url("../images/heroVid/hero-poster.jpg") center / cover;
     /* Reserve a compact top row so the toggle never overlaps the portrait or name. */
     padding: 64px 24px 28px;
     text-align: center;
@@ -89,7 +97,6 @@ body {
     /* Scale height with width to keep the original image proportions. */
     height: auto;
     margin: 0 auto 20px;
-    border: 1px solid var(--border);
     border-radius: 6px;
 }
 
@@ -146,6 +153,10 @@ h1 {
     color: var(--text-muted);
 }
 
+.page-header .introduction {
+    color: var(--hero-supporting-text);
+}
+
 /* The sun, slider and moon form one keyboard-operable button in the header corner. */
 .theme-toggle {
     position: absolute;
@@ -156,7 +167,7 @@ h1 {
     padding: 4px;
     border: 0;
     border-radius: 4px;
-    background-color: transparent;
+    background-color: var(--surface);
     color: var(--heading);
     font: inherit;
     cursor: pointer;
@@ -310,8 +321,8 @@ p {
     margin-bottom: 16px;
 }
 
-/* Space later entries even when a preview dialog sits between them. */
-.entry ~ .entry {
+/* Space each entry after the first within a section. */
+.entry + .entry {
     margin-top: 24px;
 }
 
@@ -513,8 +524,7 @@ address {
     background-color: var(--text-muted);
 }
 
-.project-browser img,
-.project-dialog img {
+.project-browser img {
     display: block;
     width: 100%;
     height: auto;
@@ -537,67 +547,42 @@ address {
     font-size: 0.85rem;
 }
 
-.project-button {
-    min-height: 44px;
-    padding: 8px 16px;
-    border: 1px solid var(--accent);
-    border-radius: 6px;
-    background-color: var(--accent);
-    color: var(--surface);
-    font: inherit;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 150ms;
-}
-
-.project-button:hover {
-    background-color: var(--link-hover);
-}
-
 .project-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px 20px;
+    gap: 12px;
     margin-top: 8px;
 }
 
-.project-links a,
-.project-dialog > a {
+/* Navigation remains ordinary links, styled as primary and secondary actions. */
+.project-links a {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     min-height: 44px;
+    max-width: 100%;
+    padding: 8px 16px;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    color: var(--accent);
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 150ms, color 150ms;
 }
 
-.project-dialog {
-    width: min(960px, calc(100% - 32px));
-    max-height: calc(100% - 32px);
-    padding: 20px;
-    overflow: auto;
-    border: 1px solid var(--border);
-    border-radius: 10px;
+.project-links a:hover {
     background-color: var(--surface);
-    color: var(--text);
+    color: var(--link-hover);
 }
 
-.project-dialog::backdrop {
-    background-color: rgb(0 0 0 / 65%);
+.project-links .project-link-primary {
+    background-color: var(--accent);
+    color: var(--surface);
 }
 
-.project-dialog-header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 16px;
-}
-
-.project-dialog-header h3 {
-    margin-bottom: 0;
-}
-
-.project-dialog img {
-    margin-bottom: 16px;
+.project-links .project-link-primary:hover {
+    background-color: var(--link-hover);
+    color: var(--surface);
 }
 
 @media (min-width: 768px) {
@@ -612,7 +597,7 @@ address {
 
 @media (prefers-reduced-motion: reduce) {
     .project-card,
-    .project-button {
+    .project-links a {
         transition: none;
     }
 }
@@ -654,4 +639,25 @@ address {
     .credential-badge {
         width: 64px;
     }
+}
+
+/* Contain the video behind the portrait and a readable theme-coloured overlay. */
+.hero-video {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.page-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--surface-muted);
+    opacity: var(--hero-overlay-opacity);
+    pointer-events: none;
 }
