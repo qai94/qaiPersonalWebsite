@@ -1,4 +1,4 @@
-// This script runs in the head so the theme is chosen before CSS paints the page.
+// Pre-choose theme based on system preference
 const themeStorageKey = "qaiPersonalWebsite.theme";
 const systemTheme = typeof window.matchMedia === "function"
     ? window.matchMedia("(prefers-color-scheme: dark)")
@@ -6,20 +6,19 @@ const systemTheme = typeof window.matchMedia === "function"
 let manualTheme = null;
 let themeToggle = null;
 
-// Storage can be unavailable, including when index.html is opened as a local file.
+// Check for saved theme preference in browser storage
 try {
     const savedTheme = window.localStorage.getItem(themeStorageKey);
     if (savedTheme === "light" || savedTheme === "dark") {
         manualTheme = savedTheme;
     }
 } catch {
-    // Continue with the system preference when a saved choice cannot be read.
+    // Continue with the system preference when a saved choice cannot be read
 }
 
+// Apply the theme to the document and update the toggle button state
 function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
-
-    // The button does not exist yet when this function first runs in the head.
     if (themeToggle) {
         themeToggle.setAttribute("aria-pressed", theme === "dark");
     }
@@ -31,7 +30,7 @@ function getSystemTheme() {
 
 applyTheme(manualTheme || getSystemTheme());
 
-// Follow device changes only until the visitor makes an explicit choice.
+// Follow device changes only until the visitor makes a choice
 if (systemTheme) {
     systemTheme.addEventListener("change", function () {
         if (manualTheme === null) {
@@ -40,7 +39,7 @@ if (systemTheme) {
     });
 }
 
-// Wait for the HTML button before attaching its click handler and revealing it.
+// Wait for HTML button before attaching click handler 
 document.addEventListener("DOMContentLoaded", function () {
     themeToggle = document.getElementById("theme-toggle");
     if (!themeToggle) {
@@ -58,14 +57,14 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             window.localStorage.setItem(themeStorageKey, manualTheme);
         } catch {
-            // The manual choice still applies to this page when saving is blocked.
+            // The manual choice still applies to this page when saving is blocked
         }
     });
 
     themeToggle.hidden = false;
 });
 
-// Load decorative video only when motion is allowed; keep the poster as fallback.
+// Load decorative video when motion is allowed but keep poster as fallback
 document.addEventListener("DOMContentLoaded", function () {
     const video = document.getElementById("hero-video");
     const reducedMotion = typeof window.matchMedia === "function"
@@ -91,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
             video.load();
         }
         video.hidden = video.readyState < 2;
-        // If autoplay is blocked, retain the static poster without extra controls.
+        // If autoplay is blocked, retain static poster
         video.play().catch(function () {
             video.hidden = true;
         });
@@ -105,7 +104,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     video.addEventListener("error", showPosterFallback);
-    // Source errors do not bubble to video; the last source means both failed.
     video.querySelector("source:last-child").addEventListener("error", showPosterFallback);
 
     if (reducedMotion) {
@@ -114,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
     followMotionPreference();
 });
 
-// Enhance the footer anchor without removing its no-JavaScript fallback.
+// Enhance footer anchor without removing the no-JavaScript fallback
 document.addEventListener("DOMContentLoaded", function () {
     const backToTop = document.getElementById("back-to-top");
     const top = document.getElementById("top");
@@ -126,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateBackToTop() {
         backToTop.hidden = window.scrollY <= window.innerHeight &&
             document.activeElement !== backToTop;
-        // Lift the icon above the footer so copyright remains unobstructed.
+        // Lift icon above the footer
         const clearance = Math.max(0, window.innerHeight - footer.getBoundingClientRect().top);
         backToTop.style.setProperty("--footer-clearance", clearance + "px");
     }
@@ -134,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
     backToTop.classList.add("is-floating");
     backToTop.addEventListener("click", function () {
         top.focus({ preventScroll: true });
-        // The native #top anchor performs the immediate scroll.
+        // Native #top anchor performs the immediate scroll
     });
     backToTop.addEventListener("blur", updateBackToTop);
     window.addEventListener("scroll", updateBackToTop, { passive: true });

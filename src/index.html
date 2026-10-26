@@ -1,30 +1,33 @@
-<!-- Use HTML5 and declare English for browsers and screen readers. -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- UTF-8 supports special characters; viewport fits the layout to the device width. -->
+    <!-- UTF8 for special char & viewport fits device width. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- A short page summary that search engines may show in results. -->
-    <meta name="description" content="Qaiyum Hamid: educator, founder and tutor, and part-time Computer Science student interested in data science and educational technology.">
-    <title>Qaiyum Hamid | Personal Résumé</title>
-    <!-- Choose the theme before the stylesheet loads to avoid a wrong-theme flash. -->
+    
+    <!-- SEO Meta and Tags -->
+    <meta name="description" content="Abdul Qaiyum: educator, founder and tutor, and part-time Computer Science student interested in data science and educational technology.">
+    <title> Abdul Qaiyum</title>
     <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <!-- Let keyboard users jump past the header and navigation. -->
+    <!-- Keyboard Jump past header -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <div class="resume" id="top" tabindex="-1">
-        <!-- The header introduces the person; the résumé details follow in main. -->
+
         <header class="page-header">
-            <!-- Decorative motion: the poster remains visible until a frame is ready. -->
+
+            <!-- Hero Motion (Video Loop or Poster) -->
             <video class="hero-video" id="hero-video" poster="images/heroVid/hero-poster.jpg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" hidden>
                 <source data-src="images/heroVid/hero-bg.webm" type="video/webm">
                 <source data-src="images/heroVid/hero-bg.mp4" type="video/mp4">
             </video>
-            <!-- The icon-only button keeps an accessible name and pressed state. -->
+
+            <!-- Dark Mode Toggle -->
             <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Toggle dark mode" hidden>
                 <svg class="theme-icon theme-icon-sun" aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 3V5.25M18.364 5.63604L16.773 7.22703M21 12H18.75M18.364 18.364L16.773 16.773M12 18.75V21M7.22703 16.773L5.63604 18.364M5.25 12H3M7.22703 7.22703L5.63604 5.63604M15.75 12C15.75 14.0711 14.0711 15.75 12 15.75C9.92893 15.75 8.25 14.0711 8.25 12C8.25 9.92893 9.92893 8.25 12 8.25C14.0711 8.25 15.75 9.92893 15.75 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -34,16 +37,17 @@
                 <path d="M21.7519 15.0021C20.597 15.484 19.3296 15.7501 18 15.7501C12.6152 15.7501 8.25 11.3849 8.25 6.00011C8.25 4.67052 8.51614 3.40308 8.99806 2.24817C5.47566 3.71798 3 7.19493 3 11.2501C3 16.6349 7.36522 21.0001 12.75 21.0001C16.8052 21.0001 20.2821 18.5245 21.7519 15.0021Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </button>
-            <!-- alt describes the photo; width and height reserve space while it loads. -->
+
+            <!-- Image Profile picture -->
             <img class="portrait" src="images/profile.png" width="600" height="769" alt="Qaiyum's profile photo">
             <div class="header-introduction">
-                <h1>Qaiyum Hamid</h1>
+                <h1>Abdul Qaiyum </h1>
                 <p class="headline">Educator &amp; Computer Science Enthusiast</p>
                 <p class="introduction">Mathematics &middot; Statistics &middot; Data Science and Analysis</p>
             </div>
         </header>
 
-        <!-- Each link points to the matching section ID on this page. -->
+        <!-- Navigation Menu -->
         <nav class="section-nav" aria-label="Résumé sections">
             <ul>
                 <li><a href="#profile">About</a></li>
@@ -56,20 +60,21 @@
             </ul>
         </nav>
 
-        <!-- main holds the primary content; tabindex="-1" lets the skip link focus it. -->
+
         <main id="main-content" tabindex="-1">
-            <!-- Each section uses its heading ID as its accessible name via aria-labelledby. -->
+            
+            <!-- About Me section -->
             <section id="profile" aria-labelledby="profile-heading">
                 <h2 id="profile-heading">About Me</h2>
                 <!-- strong marks important text, usually displayed in bold. -->
                 <p>An <strong>educator and computer science enthusiast</strong> with almost a decade of experience in teaching Mathematics &amp; Additional Mathematics.
                     Currently pursuing a <strong>Bachelor’s Degree in Computer Science </strong> at Universiti Teknologi MARA (UiTM), with interests in <strong>data science and educational technology</strong>.</p>
             </section>
-
+            
+            <!-- Experience section -->
             <section id="experience" aria-labelledby="experience-heading">
                 <h2 id="experience-heading">Experience</h2>
 
-                <!-- Each article groups one résumé entry; h3 sits below the section h2. -->
                 <article class="entry">
                     <h3>Education Principal</h3>
                     <p class="organisation">Future Faculty</p>
@@ -111,7 +116,8 @@
                     </ul>
                 </article>
             </section>
-
+            
+            <!-- Education section -->
             <section id="education" aria-labelledby="education-heading">
                 <h2 id="education-heading">Education</h2>
 
@@ -134,6 +140,7 @@
                 </article>
             </section>
 
+            <!-- Skills section -->
             <section id="skills" aria-labelledby="skills-heading">
                 <h2 id="skills-heading">Skills</h2>
                 <!-- Use an unordered list when item order does not matter. -->
@@ -145,6 +152,7 @@
                 </ul>
             </section>
 
+            <!-- Projects section -->
             <section id="projects" aria-labelledby="projects-heading">
                 <h2 id="projects-heading">Projects</h2>
 
@@ -176,6 +184,7 @@
                 </article>
             </section>
 
+            <!-- Certifications section -->
             <section id="certifications" aria-labelledby="certifications-heading">
                 <h2 id="certifications-heading">Certifications</h2>
 
@@ -200,9 +209,9 @@
                 </article>
             </section>
 
+            <!-- Contact section -->
             <section id="contact" aria-labelledby="contact-heading">
                 <h2 id="contact-heading">Lets Connect</h2>
-                <!-- address identifies contact details; mailto opens an email application. -->
                 <address>
                     <ul class="contact-list">
                         <li>
@@ -231,30 +240,9 @@
             </section>
         </main>
 
-        <!-- The footer contains copyright details and a link to the top container ID. -->
+        <!-- Footer with copyright & back to top link -->
         <footer class="page-footer">
-            <p>© 2026 Qaiyum Hamid.</p>
-            <!--
-                Bootstrap Icons arrow-up — https://icons.getbootstrap.com/
-                The MIT License (MIT)
-                Copyright (c) 2019-2024 The Bootstrap Authors
-
-                Permission is hereby granted, free of charge, to any person obtaining a copy
-                of this software and associated documentation files (the "Software"), to deal
-                in the Software without restriction, including without limitation the rights
-                to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                copies of the Software, and to permit persons to whom the Software is
-                furnished to do so, subject to the following conditions:
-                The above copyright notice and this permission notice shall be included in
-                all copies or substantial portions of the Software.
-                THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                THE SOFTWARE.
-            -->
+            <p>© 2026 Abdul Qaiyum.</p>
             <a class="back-to-top" id="back-to-top" href="#top" aria-label="Back to top" title="Back to top">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="back-to-top-icon" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
