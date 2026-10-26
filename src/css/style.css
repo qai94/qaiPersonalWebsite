@@ -226,6 +226,18 @@ h1 {
     transform: translateX(22px);
 }
 
+/* Keep the track and thumb visible when forced colours replace their fills. */
+@media (forced-colors: active) {
+    .theme-track {
+        outline: 1px solid ButtonText;
+    }
+
+    .theme-track::after {
+        box-sizing: border-box;
+        border: 2px solid ButtonText;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .theme-track,
     .theme-track::after {
@@ -379,6 +391,8 @@ main:focus-visible {
 .skip-link {
     position: absolute;
     top: 8px;
+    /* Keep the focused bypass link above the hero and floating controls. */
+    z-index: 30;
     /* Keep the whole link hidden even when enlarged text makes it taller. */
     left: -10000px;
     max-width: 90%;
